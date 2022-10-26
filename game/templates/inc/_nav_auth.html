@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="navbar navbar-dark bg-dark">
+        <div class="col-md-9">
+            <div class="navbar-header">
+                <a href="{% url 'home' %}" class="navbar-brand"> <text class="text-light fs-2">&nbsp;&nbsp;MATCH</text> <text class="text-danger fs-2">NOTIFICATION</text></a>
+            </div>
+        </div>
+
+        <div class="col-md-2 text-light">
+            <strong>{{ user.username }}</strong>
+        </div>
+        <div class="col-md-1 text-light">
+            &nbsp;&nbsp;&nbsp;
+            <a href="{% url 'logout' %}" class="btn btn-outline-light">Вихід</a>
+        </div>
+    </div>
+</div>

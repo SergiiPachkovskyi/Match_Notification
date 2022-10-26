@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+{{block.super}} : Match Notification
+{% endblock %}
+
+{% block content %}
+
+<br>
+
+<div class="container">
+    {% if request.user.is_authenticated %}
+
+    <h2>Підписки</h2>
+
+    <a href="{% url 'subscription_add' %}" class="btn btn-outline-secondary btn-md">Додати підписку</a>
+
+    <br>
+    <br>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>Назва команди</th>
+        </tr>
+        </thead>
+        {% for art in subscriptions %}
+        <tr>
+            <th>
+                <a href="{% url 'remove_subscription' art.pk %}"><img src="{% static 'game/images/delete.png' %}"
+                                                                 width="20"
+                                                                 title="Видалити"></a>
+            </th>
+            <th>
+                <a href="{% url 'edit_subscription' art.pk  %}"><img src="{% static 'game/images/edit.png' %}"
+                                                                 width="25"
+                                                                 title="Змінити"></a>
+            </th>
+            <th>
+                {{ art.team_name }}
+            </th>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% else %}
+
+    <br>
+
+    <div class="container-fluid">
+        <h1>Вітаємо в Match Notification!</h1>
+        <h3>Увійдіть або зареєструйтесь для додавання підписок на сповіщення про матчі</h3>
+    </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}

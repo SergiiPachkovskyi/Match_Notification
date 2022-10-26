@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+{{block.super}} : Додавання підписки
+{% endblock %}
+
+{% block content %}
+
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Додавання підписки</h2>
+
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <input type="hidden" id="user_pk" value={{request.user.pk}}>
+
+                <button class="btn btn-outline-secondary btn-md" type="submit">Додати</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

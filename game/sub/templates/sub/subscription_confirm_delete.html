@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+{{block.super}} : Видалення підписки
+{% endblock %}
+
+{% block content %}
+
+<br>
+
+<div class="container">
+    <h2>Видалення підписки</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <p>Ви впевнені, що хочете видалити підписку "{{ object }}"?</p>
+        {{ form }}
+        <input class="btn btn-outline-secondary btn-md" type="submit" value="Підтвердити">
+    </form>
+</div>
+
+{% endblock %}

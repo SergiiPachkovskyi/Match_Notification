@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+{{block.super}} : Помилка видалення підписки
+{% endblock %}
+
+{% block content %}
+
+<br>
+
+<div class="container">
+    <h2>Видалення підписки</h2>
+
+    <h4 class="text-danger">Помилка видалення!</h4>
+    <h4 class="text-danger">Існують посилання на об'єкт</h4>
+</div>
+
+{% endblock %}
