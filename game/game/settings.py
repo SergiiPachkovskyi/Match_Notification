@@ -140,7 +140,7 @@ EMAIL_HOST_PASSWORD = '8s4XZdxQI7zhkz6H'
 EMAIL_PORT = 465
 
 # redis related settings
-REDIS_HOST = '127.0.0.0'
+REDIS_HOST = '127.0.0.1'
 REDIS_PORT = '6379'
 
 # celery settings

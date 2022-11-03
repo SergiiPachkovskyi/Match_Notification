@@ -10,10 +10,10 @@ app.config_from_object('django.conf:settings', namespace='CELERY')  # Celery wil
 # at the beginning
 app.autodiscover_tasks()  # automatically pull tasks
 
-# # periodic tasks
-# app.conf.beat_schedule = {
-#     'send-spam-every-1-minutes': {
-#         'task': 'main.tasks.send_beat_email',  # indicate task
-#         'schedule': crontab(minute='*/1')  # every 3 minutes
-#     },
-# }
+# periodic tasks
+app.conf.beat_schedule = {
+    'send-spam-every-1-minutes': {
+        'task': 'sub.tasks.send_beat_email',  # indicate task
+        'schedule': crontab(minute='*/1')  # every 3 minutes
+    },
+}

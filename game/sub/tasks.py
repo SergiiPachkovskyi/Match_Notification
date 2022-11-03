@@ -9,12 +9,12 @@ def new_subscription_notice(user_email, team_name):
     send(user_email, 'New team ' + team_name, 'New subscription')
 
 
-# @app.task
-# def send_beat_email():
-#     for contact in Subscription.objects.all():
-#         send(contact.user.email, 'we will send yuo lot of messages every 1 minutes', 'Нова підписка')
-#
-#
+@app.task
+def send_beat_email():
+    for contact in Subscription.objects.all().select_related('user'):
+        send(contact.user.email, 'we will send yuo lot of messages every 1 minutes', 'Spam')
+
+
 # @app.task
 # def my_task(a, b):
 #     return a + b
