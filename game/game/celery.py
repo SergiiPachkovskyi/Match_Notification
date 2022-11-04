@@ -12,8 +12,8 @@ app.autodiscover_tasks()  # automatically pull tasks
 
 # periodic tasks
 app.conf.beat_schedule = {
-    'send-spam-every-1-minutes': {
+    'march_notification-every-day': {
         'task': 'sub.tasks.send_beat_email',  # indicate task
-        'schedule': crontab(minute='*/1')  # every 3 minutes
+        'schedule': crontab(minute='*/1')
     },
 }

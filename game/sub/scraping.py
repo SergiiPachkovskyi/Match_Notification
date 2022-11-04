@@ -20,19 +20,13 @@ def get_matches(team_name):
         return None
 
     matches = block_matches_current.findAll('tr')
-    result = []
+    result = ''
     for m in matches:
         columns = m.findAll('td')
         link = 'https://en.game-tournaments.com' + columns[1].find('a')['href']
         title = columns[1].find('a')['title']
         date = columns[2].findAll('span')[1].find('span').text
 
-        result.append({
-            'title': title,
-            'date': date,
-            'link': link,
-        })
-        return result
+        result += f'{title}\n{date}\n{link}\n\n'
+    return result
 
-
-print(get_matches('qhali'))
