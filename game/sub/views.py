@@ -111,7 +111,6 @@ class AddSubscription(CreateView):
 
     def form_valid(self, form):
         form.save()
-        # new_subscription_notice(form.current_user.email, form.cleaned_data['team_name'])
         new_subscription_notice.delay(form.current_user.email, form.cleaned_data['team_name'])
         return super().form_valid(form)
 
