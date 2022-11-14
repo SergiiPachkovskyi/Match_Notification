@@ -26,7 +26,7 @@ class Subscription(models.Model):
 class Match(models.Model):
     team_name = models.CharField(max_length=100, verbose_name='Команда')
     user = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name='Користувач')
-    event_date = models.DateField(verbose_name='Дата події')
+    event_date = models.DateTimeField(verbose_name='Дата події')
 
     def __str__(self):
         return f'{self.team_name} - {self.event_date}'

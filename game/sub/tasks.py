@@ -18,12 +18,12 @@ def send_beat_email():
         for match in matches:
             count = Match.objects.filter(user=contact.user,
                                          team_name=contact.team_name,
-                                         event_date=match.event_date
+                                         event_date=match['event_date']
                                          ).count()
             if count != 0:
                 continue
 
-            send(contact.user.email, match.link, f'{match.title} - {match.date}')
+            send(contact.user.email, match["link"], f'{match["title"]} {str(match["event_date"])}')
 
-            new_match = Match(**match, user=contact.user)
+            new_match = Match(team_name=contact.team_name, user=contact.user, event_date=match["event_date"])
             new_match.save()
