@@ -43,7 +43,7 @@ $ pip install psycopg2-binary # On Linux or Unix
 $ pip install psycopg2 # On Windows
 ```
 
-Refill game/sub/.env
+Refill game/game/.env
 
 Enter the project folder
 ``` 
