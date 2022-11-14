@@ -4,6 +4,8 @@ Match_Notification
 # General info
 The program that sends match notifications to the mail
 
+
+
 # Technologies
 * Python 3
 * Django 4.1
