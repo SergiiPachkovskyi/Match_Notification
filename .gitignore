@@ -1,3 +1,5 @@
 .idea/
 /venv/
-/migrations/
+/game/sub/migrations/
+/game/celerybeat-schedule
+/game/game/static/
