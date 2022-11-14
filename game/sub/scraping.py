@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -20,13 +22,23 @@ def get_matches(team_name: str):
         return None
 
     matches = block_matches_current.findAll('tr')
-    result = ''
+    result = []
     for m in matches:
         columns = m.findAll('td')
         link = 'https://en.game-tournaments.com' + columns[1].find('a')['href']
         title = columns[1].find('a')['title']
-        date = columns[2].findAll('span')[1].find('span').text
+        event_date = columns[2].findAll('span')[1].find('span').text
+        try:
+            event_date = datetime.strptime(event_date, '%Y-%m-%d %H:%M:%S')
+        except ValueError:
+            event_date = datetime.now()
 
-        result += f'{title}\n{date}\n{link}\n\n'
+        match = {
+            'team_name': team_name,
+            'link': link,
+            'title': title,
+            'event_date': event_date,
+        }
+        result.append(match)
+
     return result
-
