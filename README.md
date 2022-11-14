@@ -4,7 +4,7 @@ Match_Notification
 # General info
 The program that sends match notifications to the mail
 
-
+![](game/static/game/images/home.png)
 
 # Technologies
 * Python 3
