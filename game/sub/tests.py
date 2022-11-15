@@ -151,3 +151,4 @@ class TestUrls(SimpleTestCase):
     def test_edit_subscription_url_resolves(self):
         url = reverse('subscription_edit', args=[1])
         self.assertEqual(resolve(url).func.view_class, EditSubscription)
+
