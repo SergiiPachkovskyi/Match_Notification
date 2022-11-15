@@ -9,7 +9,7 @@ urlpatterns = [
 
     path('', Home.as_view(), name='home'),
     path('subscription_add/', AddSubscription.as_view(), name='subscription_add'),
-    path('subscriptions/<int:pk>/edit', EditSubscription.as_view(), name='edit_subscription'),
+    path('subscriptions/<int:pk>/edit', EditSubscription.as_view(), name='subscription_edit'),
     path('remove_subscription/<int:pk>', RemoveSubscription.as_view(), name='remove_subscription'),
     path('subscription_delete_error', subscription_delete_error, name='subscription_delete_error'),
 ]

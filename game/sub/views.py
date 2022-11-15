@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.urls import reverse_lazy
 from django.views.generic import ListView, UpdateView, CreateView, DeleteView
+from kombu.exceptions import OperationalError
 
 from .forms import UserLoginForm, UserRegisterForm, SubscriptionForm
 from .models import Subscription
@@ -111,7 +112,10 @@ class AddSubscription(CreateView):
 
     def form_valid(self, form):
         form.save()
-        new_subscription_notice.delay(form.current_user.email, form.cleaned_data['team_name'])
+        try:
+            new_subscription_notice.delay(form.current_user.email, form.cleaned_data['team_name'])
+        except OperationalError:
+            pass
         return super().form_valid(form)
 
 

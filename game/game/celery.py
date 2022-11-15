@@ -14,6 +14,6 @@ app.autodiscover_tasks()  # automatically pull tasks
 app.conf.beat_schedule = {
     'march_notification': {
         'task': 'sub.tasks.send_beat_email',  # indicate task
-        'schedule': crontab(minute='*/1')
+        'schedule': crontab(minute='*/5')
     },
 }
