@@ -8,24 +8,24 @@ from sub.views import user_registration, user_login, user_logout, Home, EditSubs
     RemoveSubscription, subscription_delete_error
 
 
-# class SubscriptionModelTest(TestCase):
-#
-#     def setUp(self):
-#         self.user = User()
-#         self.user.username = 'user'
-#         self.user.password = 'password'
-#         self.user.save()
-#
-#     def test_fields(self):
-#         sub = Subscription()
-#         sub.team_name = 'test'
-#         sub.user = User.objects.get(pk=self.user.pk)
-#         sub.save()
-#
-#         record = Subscription.objects.get(pk=sub.pk)
-#         self.assertEqual(record, sub)
-#
-#
+class SubscriptionModelTest(TestCase):
+
+    def setUp(self):
+        self.user = User()
+        self.user.username = 'user'
+        self.user.password = 'password'
+        self.user.save()
+
+    def test_fields(self):
+        sub = Subscription()
+        sub.team_name = 'test'
+        sub.user = User.objects.get(pk=self.user.pk)
+        sub.save()
+
+        record = Subscription.objects.get(pk=sub.pk)
+        self.assertEqual(record, sub)
+
+
 # class TestForms(TestCase):
 #
 #     def test_user_register_form_data(self):
