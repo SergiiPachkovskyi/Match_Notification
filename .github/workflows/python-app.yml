@@ -22,7 +22,7 @@ jobs:
         image: postgres:latest
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: admin
+          POSTGRES_PASSWORD: postgres
           POSTGRES_DB: match_notification
         ports:
           - 5432:5432
