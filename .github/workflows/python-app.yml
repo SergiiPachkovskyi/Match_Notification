@@ -49,9 +49,9 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Run migrations
       run: |
-        export PYTHONPATH=game
-        python manage.py makemigrations sub
-        python manage.py migrate
+        python game/manage.py makemigrations sub
+        python game/manage.py migrate
     - name: Test with pytest
       run: |
+        export PYTHONPATH=game
         pytest
